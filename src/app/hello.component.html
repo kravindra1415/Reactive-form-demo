@@ -1,0 +1,51 @@
+<!-- using form control -->
+<!-- <p><label for="">Name</label> <input type="text" [formControl]="name" /></p>
+{{ name.value }} -->
+
+<!-- using form group -->
+<form [formGroup]="customerForm" (ngSubmit)="saveCustomer()">
+  <p>
+    <label>First Name</label>
+    <input type="text" formControlName="firstName" required />
+  </p>
+
+  <p>
+    <label>Last Name</label>
+    <input type="text" formControlName="lastName" />
+  </p>
+
+  <div formGroupName="address">
+    <h3>Address</h3>
+
+    <p>
+      <label>Street</label>
+      <input type="text" formControlName="street" />
+    </p>
+
+    <p>
+      <label>City</label>
+      <input type="text" formControlName="city" />
+    </p>
+
+    <p>
+      <label>ZipCode</label>
+      <input type="text" formControlName="zipcode" />
+    </p>
+
+    <p>
+      <label>State</label>
+      <input type="text" formControlName="state" />
+    </p>
+  </div>
+  <p>
+    <label>Mobile</label>
+    <input type="text" formControlName="mobile" />
+  </p>
+
+  <p>
+    <label>&nbsp;</label>
+    <button [disabled]="!customerForm.valid" type="submit">Submit</button>
+  </p>
+</form>
+
+<pre>{{ customerForm.value | json }}</pre>
